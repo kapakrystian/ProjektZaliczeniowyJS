@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      EDYTOWANIE GISTOW:
+    </div>
+    <div class="card-body"></div>
+    <form>
+      <div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Podaj ID Gista:</label>
+          <input type="text" class="form-control"  name="gistID" placeholder="podaj ID gista" [(ngModel)]="gistID">
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Nowy Opis Gista:</label>
+          <input type="text" class="form-control"  name="gistDescription" placeholder="dodaj opis gista" [(ngModel)]="gistDescription">
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Podaj Nazwę Pliku:</label>
+          <input type="text" class="form-control" name="gistName" placeholder="podaj nazwę pliku" [(ngModel)]="gistName">
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Edytuj Nazwę:</label>
+          <input type="text" class="form-control" name="gistFileName" placeholder="podaj nową nazwę pliku" [(ngModel)]="gistName2">
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Edytuj Zawartość:  </label>
+          <input type="text" class="form-control" name="gistContent" placeholder="wprowadź nową zawartość pliku" [(ngModel)]="gistContent">
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label class="col-md-12 col-form-label">Czy Gist ma być publiczny?</label>
+          <div class="custom-control custom-checkbox">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="public1" name="public1" [(ngModel)]="gistPublic">
+              <label class="custom-control-label" for="public1">Tak</label>
+            </div>
+          </div>
+        </div>
+          <div>
+        <button type="submit" class="btn btn-dark" (click)='editGist()'>EDYTUJ GIST</button>
+            {{gistEdit | async}}
+
+          </div>
+      </div>
+    </form>
+  </div>
+
+</div>

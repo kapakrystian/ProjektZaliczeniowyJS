@@ -1,0 +1,73 @@
+
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      LISTOWANIE GISTOW:
+    </div>
+    <div class="card-body"></div>
+    <form>
+      <div>
+        <div>
+          <label>Wprowadź nazwę użytkownika GitHub</label>
+          <input type="text" class="form-control" name="userName" [(ngModel)]="userName">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-dark break" (click)='gistsListing()'>LISTUJ GISTY</button>
+
+        </div>
+        <div>
+
+          <div class="col-12 form-group row">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">URL</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">OPIS</th>
+                  <th scope="col">PUBLICZNY</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let gists of gistsView">
+                  <td>{{gists.url}}</td>
+                  <td>{{gists.id}}</td>
+                  <td>{{gists.public}}</td>
+                  <td>{{gists.description}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <ul class="pagination">
+              <li class="page-item break"><a class="page-link" (click)="previous()">POPRZEDNI</a></li>
+              <li class="page-item break"><a class="page-link" (click)="next()">KOLEJNY</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5>Filtrowanie Gistow:</h5>
+            <button class="btn btn-dark break" (click)="allGists()">WSZYSTKIE</button>
+            <button class="btn btn-dark break" (click)="publicGist()">PUBLICZNE</button>
+            <button class="btn btn-dark break" (click)="privateGist()">PRYWATNE</button>
+          </div>
+          <div>
+            <h5>Filtruj Gisty Po Opisie: </h5>
+            <input type="text" class="form-control" name="filDescription" placeholder="Wprowadź opis wyszukiwanego gista" [(ngModel)]="filDescription">
+            <button class="btn btn-dark break" (click)="descriptionFil()">FILTRUJ</button>
+          </div>
+          <div>
+            <h5>Filtruj Gisty Po ID:</h5>
+            <input type="text" class="form-control" name="filId" placeholder="Wprowadź ID wyszukiwanego gista" [(ngModel)]="filId">
+            <button class="btn btn-dark break" (click)="IdFil()">FILTRUJ</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
